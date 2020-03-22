@@ -458,4 +458,10 @@ Intents são correspondidos a filtros de intents não somente para descobrir um 
 
 O aplicativo pode usar a correspondência de intents de modo semelhante ao feito pelo aplicativo Home. O PackageManager tem um conjunto de métodos query...() que retornam todos os componentes que podem aceitar um determinado intent e uma série de métodos resolve...() similares, que determinam o melhor componente para responder a um intent. Por exemplo, queryIntentActivities() retorna uma lista de atividades que podem realizar o intent passado como argumento, e queryIntentServices() retorna uma lista semelhante de serviços. Nenhum dos métodos ativa os componentes, eles só listam os que podem responder. Há um método semelhante, queryBroadcastReceivers(), para os broadcast receivers.
 
-[Publicação Original](https://developer.android.com/guide/components/intents-filters?hl=pt_br)
+[Publicação Original Android Developers](https://developer.android.com/guide/components/intents-filters?hl=pt_br)
+
+---
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license?hl=pt_br). Java is a registered trademark of Oracle and/or its affiliates.
+
+---
