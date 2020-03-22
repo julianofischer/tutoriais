@@ -392,24 +392,29 @@ Para especificar ações de intents aceitos, um filtro de intents pode declarar 
 
 Cada elemento <data> pode especificar uma estrutura de URI e um tipo de dados (tipo de mídia MIME). Cada parte do URI é um atributo separado: scheme, host, port e path:
 
+```xml
 <scheme>://<host>:<port>/<path>
+```
 
 O exemplo abaixo mostra possíveis valores para esses atributos:
 
+```
 content://com.example.project:200/folder/subfolder/etc
+``` 
 
 Nesse URI, o esquema é content, o host é com.example.project, a porta é 200 e o caminho é folder/subfolder/etc.
 
 Cada um desses atributos é opcional em um elemento <data>, mas há dependências lineares:
 
-Se não houver esquema especificado, o host será ignorado.
-Se não houver host especificado, a porta será ignorada.
-Se não houver esquema nem host especificado, o caminho será ignorado.
+- Se não houver esquema especificado, o host será ignorado.
+- Se não houver host especificado, a porta será ignorada.
+- Se não houver esquema nem host especificado, o caminho será ignorado.
+
 Quando o URI em um intent é comparado a uma especificação de URI em um filtro, a comparação é feita somente com as partes do URI incluídas no filtro. Por exemplo:
 
-Se um filtro especificar somente um esquema, todos os URIs com esse esquema atenderão ao filtro.
-Se um filtro especificar um esquema e uma autoridade, mas não um caminho, todos os URIs com o mesmo esquema e autoridade passarão pelo filtro independentemente dos caminhos.
-Se um filtro especificar um esquema, uma autoridade e um caminho, somente URIs com o mesmo esquema, autoridade e caminho passarão pelo filtro.
+- Se um filtro especificar somente um esquema, todos os URIs com esse esquema atenderão ao filtro.
+- Se um filtro especificar um esquema e uma autoridade, mas não um caminho, todos os URIs com o mesmo esquema e autoridade passarão pelo filtro independentemente dos caminhos.
+- Se um filtro especificar um esquema, uma autoridade e um caminho, somente URIs com o mesmo esquema, autoridade e caminho passarão pelo filtro.
 
 ---
 **Observação**
@@ -420,10 +425,10 @@ A especificação de caminho pode conter um asterisco de caractere curinga (*) p
 
 O teste de dados compara o URI e o tipo MIME do intent com um URI e um tipo MIME especificados no filtro. As regras são as seguintes:
 
-O intent que não contiver URI nem tipo MIME passará no teste somente se o filtro não especificar nenhum URI nem tipo MIME.
-O intent que contiver um URI, mas nenhum tipo MIME (nem explícito, nem inferível a partir do URI), passará no teste somente se o URI corresponder ao formato de URI do filtro e se o filtro, igualmente, não especificar um tipo MIME.
-O intent que contiver um tipo MIME, mas nenhum URI, passará no teste somente se o filtro listar o mesmo tipo MIME e não especificar nenhum formato de URI.
-O intent que contiver URI e tipo MIME (explícito ou inferível a partir do URI) passará na parte do tipo MIME do teste somente se esse tipo corresponder a um tipo listado no filtro. Ele passará na parte do URI do teste se corresponder a um URI no filtro ou se tiver um URI de content: ou file: e se o filtro não especificar nenhum URI. Em outras palavras, presume-se que um componente seja compatível com dados de content: e de file: se o filtro listar somente um tipo MIME.
+1. O intent que não contiver URI nem tipo MIME passará no teste somente se o filtro não especificar nenhum URI nem tipo MIME.
+2. O intent que contiver um URI, mas nenhum tipo MIME (nem explícito, nem inferível a partir do URI), passará no teste somente se o URI corresponder ao formato de URI do filtro e se o filtro, igualmente, não especificar um tipo MIME.
+3. O intent que contiver um tipo MIME, mas nenhum URI, passará no teste somente se o filtro listar o mesmo tipo MIME e não especificar nenhum formato de URI.
+4. O intent que contiver URI e tipo MIME (explícito ou inferível a partir do URI) passará na parte do tipo MIME do teste somente se esse tipo corresponder a um tipo listado no filtro. Ele passará na parte do URI do teste se corresponder a um URI no filtro ou se tiver um URI de content: ou file: e se o filtro não especificar nenhum URI. Em outras palavras, presume-se que um componente seja compatível com dados de content: e de file: se o filtro listar somente um tipo MIME.
 
 ---
 
