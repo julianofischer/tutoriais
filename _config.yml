@@ -9,7 +9,7 @@ name: Juliano
 description: Tutoriais
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
+avatar: https://lh3.googleusercontent.com/a-/AOh14GjUgeC54SQ0iiYcvCZHJGGXcibN7mDN30HRNv1IZw=s96-cc-rg
 
 #
 # Flags below are optional
@@ -26,7 +26,7 @@ footer-links:
   linkedin: julianofischernaves
   pinterest:
   rss: # just type anything here for a working RSS icon
-  twitter: jekyllrb
+  twitter:
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: gY6vlgx1v07BGObAK9al8Q
   googleplus: # anything in your profile username that comes after plus.google.com/
