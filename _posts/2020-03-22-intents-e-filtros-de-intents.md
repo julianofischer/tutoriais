@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Intents e filtros de intents
+title: Intents e filtros de intents (Android)
 ---
 [Publicação Original](https://developer.android.com/guide/components/intents-filters?hl=pt_br)
 # Intents e filtros de intents
