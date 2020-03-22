@@ -3,8 +3,6 @@ layout: post
 title: Introdução a atividades (Android)
 ---
 
-[Publicação original](https://developer.android.com/guide/components/activities/intro-activities?hl=pt_br#java)
-
 A classe __Activity__ é um componente crucial de um app para Android, e a maneira como as atividades são lançadas e reunidas é uma parte fundamental do modelo de aplicativo da plataforma. Diferentemente dos paradigmas de programação em que os apps são lançados com um método main(), o sistema Android inicia o código em uma instância __Activity__ invocando métodos de callback que correspondem a estágios específicos do ciclo de vida.
 
 ## O conceito de atividade
@@ -140,3 +138,11 @@ O sistema invoca esse callback antes de uma atividade ser destruída.
 Esse é o último callback que a atividade recebe. **onDestroy()** normalmente é implementado para garantir que todos os recursos de uma atividade sejam liberados quando ela (ou o processo que a contém) for destruída.
 
 Esta seção é apenas uma introdução a esse tema. Para ver um tratamento mais detalhado do ciclo de vida da atividade e dos callbacks dele, consulte Ciclo de vida da atividade.
+
+[Publicação original Android Developers](https://developer.android.com/guide/components/activities/intro-activities?hl=pt_br#java)
+
+---
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license?hl=pt_br). Java is a registered trademark of Oracle and/or its affiliates
+
+---
