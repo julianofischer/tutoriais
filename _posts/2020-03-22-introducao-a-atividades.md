@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introdução a atividades
+title: Introdução a atividades (Android)
 ---
 
 [Publicação original](https://developer.android.com/guide/components/activities/intro-activities?hl=pt_br#java)
