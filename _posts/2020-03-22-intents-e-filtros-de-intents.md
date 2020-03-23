@@ -203,7 +203,7 @@ if (sendIntent.resolveActivity(getPackageManager()) != null) {
 
 ## Como receber um intent implícito
 ---
-Para anunciar quais intents implícitos o aplicativo pode receber, declare um ou mais filtros de intents para cada um dos componentes do aplicativo com um elemento <intent-filter> no seu arquivo de manifesto. Cada filtro de intents especifica o tipo de intents aceito com base na ação, nos dados e na categoria do intent. O sistema fornecerá um intent implícito ao componente do seu aplicativo somente se ele puder passar por um dos filtros de intents.
+Para anunciar quais intents implícitos o aplicativo pode receber, declare um ou mais filtros de intents para cada um dos componentes do aplicativo com um elemento **`<intent-filter>`** no seu arquivo de manifesto. Cada filtro de intents especifica o tipo de intents aceito com base na ação, nos dados e na categoria do intent. O sistema fornecerá um intent implícito ao componente do seu aplicativo somente se ele puder passar por um dos filtros de intents.
 
 ---
 
@@ -214,13 +214,13 @@ O intent explícito é sempre entregue ao alvo independentemente dos filtros de 
 ---
 Os componentes de um aplicativo devem declarar filtros separados para cada job exclusivo que podem fazer. Por exemplo, uma atividade em um aplicativo de galeria de imagens pode ter dois filtros: um filtro para visualizar uma imagem e outro para editar uma imagem. Quando a atividade se inicia, ela inspeciona o **Intent** e decide como se comportar com base nas informações no **Intent** (como para exibir ou não os controles do editor).
 
-Cada filtro de intents é definido por um elemento <intent-filter> no arquivo de manifesto do aplicativo, aninhado no componente correspondente do aplicativo (como um elemento <activity>). Dentro de <intent-filter>, é possível especificar o tipo de intents aceitos usando um ou mais dos três elementos a seguir:
+Cada filtro de intents é definido por um elemento **`<intent-filter>`** no arquivo de manifesto do aplicativo, aninhado no componente correspondente do aplicativo (como um elemento **`<activity>`**). Dentro de **`<intent-filter>`**, é possível especificar o tipo de intents aceitos usando um ou mais dos três elementos a seguir:
 
-<action>
+- **`<action>`**
 Declara a ação do intent aceito, no atributo name. O valor deve ser o valor literal da string de uma ação, e não a constante da classe.
-<data>
+- **`<data>`**
 Declara o tipo de dados aceitos usando um ou mais atributos que especificam diversos aspectos do URI de dados (scheme, host, port, path) e o tipo MIME.
-<category>
+- **`<category>`**
 Declara a categoria do intent aceito, no atributo name. O valor deve ser o valor literal da string de uma ação, e não a constante da classe.
 
 ---
@@ -242,7 +242,7 @@ Por exemplo, abaixo há uma declaração de atividade com um filtro de intents p
 </activity>
 ```
 
-Você pode criar um filtro que inclua mais de uma instância de <action>, <data> ou <category>. Se fizer isso, será necessário verificar se o componente pode processar todas as combinações dos elementos de filtro.
+Você pode criar um filtro que inclua mais de uma instância de **`<action>`**, **`<data>`** ou **`<category>`**. Se fizer isso, será necessário verificar se o componente pode processar todas as combinações dos elementos de filtro.
 
 Para processar diversos tipos de intents, mas somente em combinações específicas de ações, dados e tipos de categoria, será necessário criar diversos filtros de intents.
 
@@ -300,7 +300,7 @@ Para demonstrar alguns comportamentos do filtro de intents, veja um exemplo do a
 A primeira atividade, MainActivity, é o ponto de entrada principal do aplicativo — a atividade que se abre quando o usuário inicializa o aplicativo pela primeira vez com o ícone na tela de início:
 
 A ação ACTION_MAIN indica que esse é o ponto de entrada principal e não espera nenhum dado de intent.
-A categoria CATEGORY_LAUNCHER indica que esse ícone da atividade deve ser colocado no inicializador de aplicativo do sistema. Se o elemento <activity> não especificar nenhum ícone com icon, o sistema usará o ícone do elemento <application>.
+A categoria CATEGORY_LAUNCHER indica que esse ícone da atividade deve ser colocado no inicializador de aplicativo do sistema. Se o elemento **`<activity>`** não especificar nenhum ícone com icon, o sistema usará o ícone do elemento **`<application>`**.
 Esses dois devem ser pareados para que a atividade apareça no inicializador do aplicativo.
 
 A segunda atividade, ShareActivity, destina-se a facilitar o compartilhamento de conteúdo de texto e mídia. Apesar de os usuários poderem acessar essa atividade pela MainActivity, eles também podem acessar ShareActivity diretamente de outro aplicativo que emita um intent implícito que corresponda a um dos dois filtros de intents.
@@ -344,7 +344,7 @@ Quando o sistema recebe um intent implícito para começar uma atividade, ele pr
 As seções a seguir descrevem como os intents correspondem aos componentes apropriados de acordo com a declaração do filtro de intents em um arquivo de manifesto do aplicativo.
 
 ### Teste de ação
-Para especificar ações de intents aceitos, um filtro de intents pode declarar zero ou mais elementos <action>, conforme o exemplo a seguir:
+Para especificar ações de intents aceitos, um filtro de intents pode declarar zero ou mais elementos **`<action>`**, conforme o exemplo a seguir:
 
 ```xml
 <intent-filter>
@@ -359,7 +359,7 @@ Para passar por esse filtro, a ação especificada no **Intent** deve correspond
 Se o filtro não listar nenhuma ação, não haverá nada a que um intent corresponda, portanto, todos os intents falharão no teste. No entanto, se um **Intent** não especificar uma ação, ele passará no teste, desde que o filtro contenha ao menos uma ação.
 
 ### Teste de categoria
-Para especificar ações de intents aceitos, um filtro de intents pode declarar zero ou mais elementos <category>, conforme o exemplo a seguir:
+Para especificar ações de intents aceitos, um filtro de intents pode declarar zero ou mais elementos **`<category>`**, conforme o exemplo a seguir:
 
 ```xml
 <intent-filter>
@@ -375,12 +375,12 @@ Para que um intent passe no teste de categoria, cada categoria no **Intent** pre
 
 **Observação**
 
-O Android aplica automaticamente a categoria CATEGORY_DEFAULT a todos os intents implícitos passados a startActivity() e a startActivityForResult(). Para que a atividade receba intents implícitos, ela precisa conter uma categoria de "android.intent.category.DEFAULT" nos filtros de intents (como é exibido no exemplo de <intent-filter> anterior).
+O Android aplica automaticamente a categoria CATEGORY_DEFAULT a todos os intents implícitos passados a startActivity() e a startActivityForResult(). Para que a atividade receba intents implícitos, ela precisa conter uma categoria de "android.intent.category.DEFAULT" nos filtros de intents (como é exibido no exemplo de **`<intent-filter>`** anterior).
 
 ---
 
 ### Teste de dados
-Para especificar ações de intents aceitos, um filtro de intents pode declarar zero ou mais elementos <data>, conforme o exemplo a seguir:
+Para especificar ações de intents aceitos, um filtro de intents pode declarar zero ou mais elementos **`<data>`**, conforme o exemplo a seguir:
 
 ```xml
 <intent-filter>
@@ -390,7 +390,7 @@ Para especificar ações de intents aceitos, um filtro de intents pode declarar 
 </intent-filter>
 ```
 
-Cada elemento <data> pode especificar uma estrutura de URI e um tipo de dados (tipo de mídia MIME). Cada parte do URI é um atributo separado: scheme, host, port e path:
+Cada elemento **`<data>`** pode especificar uma estrutura de URI e um tipo de dados (tipo de mídia MIME). Cada parte do URI é um atributo separado: scheme, host, port e path:
 
 ```xml
 <scheme>://<host>:<port>/<path>
@@ -404,7 +404,7 @@ content://com.example.project:200/folder/subfolder/etc
 
 Nesse URI, o esquema é content, o host é com.example.project, a porta é 200 e o caminho é folder/subfolder/etc.
 
-Cada um desses atributos é opcional em um elemento <data>, mas há dependências lineares:
+Cada um desses atributos é opcional em um elemento **`<data>`**, mas há dependências lineares:
 
 - Se não houver esquema especificado, o host será ignorado.
 - Se não houver host especificado, a porta será ignorada.
@@ -434,11 +434,11 @@ O teste de dados compara o URI e o tipo MIME do intent com um URI e um tipo MIME
 
 **Observação**
 
-Se um intent especificar um URI ou um tipo MIME, haverá falha no teste de dados caso não haja elementos <data> no <intent-filter>.
+Se um intent especificar um URI ou um tipo MIME, haverá falha no teste de dados caso não haja elementos **`<data>`** no **`<intent-filter>`**.
 
 ---
 
-Essa última regra (d) reflete a expectativa de que os componentes sejam capazes de receber dados de local de um arquivo ou provedor de conteúdo. Portanto, os filtros podem listar somente um tipo de dados e não precisam nomear explicitamente os esquemas content: e file:. Um elemento <data> como o seguinte, por exemplo, informa ao Android que o componente pode receber dados de imagem de um provedor de conteúdo e exibi-los:
+Essa última regra (d) reflete a expectativa de que os componentes sejam capazes de receber dados de local de um arquivo ou provedor de conteúdo. Portanto, os filtros podem listar somente um tipo de dados e não precisam nomear explicitamente os esquemas content: e file:. Um elemento **`<data>`** como o seguinte, por exemplo, informa ao Android que o componente pode receber dados de imagem de um provedor de conteúdo e exibi-los:
 
 ```xml
 <intent-filter>
@@ -449,7 +449,7 @@ Essa última regra (d) reflete a expectativa de que os componentes sejam capazes
 
 Como a maioria dos dados disponíveis é dispensada pelos provedores de conteúdo, os filtros que especificam um tipo de dados, mas não um URI, são, talvez, os mais comuns.
 
-Outra configuração comum é de filtros com um esquema e um tipo de dados. Por exemplo, um elemento <data>, como o seguinte, informa ao Android que o componente pode recuperar dados de vídeo da rede para realizar a ação:
+Outra configuração comum é de filtros com um esquema e um tipo de dados. Por exemplo, um elemento **`<data>`**, como o seguinte, informa ao Android que o componente pode recuperar dados de vídeo da rede para realizar a ação:
 
 ```xml
 <intent-filter>

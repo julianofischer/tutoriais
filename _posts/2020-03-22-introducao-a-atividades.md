@@ -23,7 +23,7 @@ Para usar as atividades no seu app, é necessário registrar informações sobre
 Para que seu app possa usar as atividades, você precisa declará-las junto a alguns dos atributos delas no manifesto.
 
 ### Declarar atividades
-Para declarar sua atividade, abra o arquivo de manifesto e adicione um elemento __<activity>__ como filho do elemento __<application>__. Exemplo:
+Para declarar sua atividade, abra o arquivo de manifesto e adicione um elemento __`<activity>`__ como filho do elemento __`<application>`__. Exemplo:
 
 ```xml
     <manifest ... >
@@ -35,7 +35,7 @@ Para declarar sua atividade, abra o arquivo de manifesto e adicione um elemento 
     </manifest >
 ```
 
-O único atributo obrigatório para esse elemento é __android:name__, que especifica o nome da classe da atividade. Você também pode adicionar atributos que definem características de atividade, como etiqueta, ícone ou tema da IU. Para mais informações sobre esses e outros atributos, consulte a documentação de referência do elemento __<activity>__.
+O único atributo obrigatório para esse elemento é __android:name__, que especifica o nome da classe da atividade. Você também pode adicionar atributos que definem características de atividade, como etiqueta, ícone ou tema da IU. Para mais informações sobre esses e outros atributos, consulte a documentação de referência do elemento __`<activity>`__.
 
 ---
 **NOTA**
@@ -47,7 +47,7 @@ Observação: depois de publicar o app, não mude os nomes das atividades. Se fi
 ## Declarar filtros de intent
 **Filtros de intent** são um recurso muito poderoso da plataforma Android. Eles oferecem a capacidade de iniciar uma atividade com base não apenas em uma solicitação explícita, mas também implícita. Por exemplo, uma solicitação explícita pode dizer ao sistema para "Iniciar a atividade de envio de e-mail no app Gmail". Por outro lado, uma solicitação implícita diz ao sistema para "Iniciar uma tela de envio de e-mail em qualquer atividade que possa fazer o trabalho". Quando a IU do sistema pergunta a um usuário qual app usar na execução de uma tarefa, um filtro de intent está em ação.
 
-Você pode aproveitar esse recurso declarando um atributo **<intent-filter>** no elemento **<activity>**. A definição desse elemento inclui um elemento <action> e, opcionalmente, um **<category>** e/ou um **<data>**. Esses elementos são combinados para especificar o tipo de intent ao qual sua atividade pode responder. Por exemplo, o seguinte snippet de código mostra como configurar uma atividade que envia dados de texto e recebe solicitações de outras atividades para fazer isso:
+Você pode aproveitar esse recurso declarando um atributo **`<intent-filter>`** no elemento **`<activity>`**. A definição desse elemento inclui um elemento `**<action>**` e, opcionalmente, um **`<category>`** e/ou um **`<data>`**. Esses elementos são combinados para especificar o tipo de intent ao qual sua atividade pode responder. Por exemplo, o seguinte snippet de código mostra como configurar uma atividade que envia dados de texto e recebe solicitações de outras atividades para fazer isso:
 
 ```xml
     <activity android:name=".ExampleActivity" android:icon="@drawable/app_icon">
@@ -59,7 +59,7 @@ Você pode aproveitar esse recurso declarando um atributo **<intent-filter>** no
     </activity>
 ```
 
-Nesse exemplo, o elemento **<action>** especifica que essa atividade envia dados. Declarar o elemento **<category>** como **DEFAULT** permite que a atividade receba solicitações de inicialização. O elemento **<data>** especifica o tipo de dado que essa atividade pode enviar. O snippet de código a seguir mostra como chamar a atividade descrita acima:
+Nesse exemplo, o elemento **`<action>`** especifica que essa atividade envia dados. Declarar o elemento **`<category>`** como **DEFAULT** permite que a atividade receba solicitações de inicialização. O elemento **`<data>`** especifica o tipo de dado que essa atividade pode enviar. O snippet de código a seguir mostra como chamar a atividade descrita acima:
 
 ```java
     // Create the text message with a string
@@ -74,7 +74,7 @@ Nesse exemplo, o elemento **<action>** especifica que essa atividade envia dados
 Se você pretende que seu app seja autossuficiente e não permita que outros apps ativem as atividades dele, você não precisa de outros filtros de intent. As atividades que você não quiser disponibilizar para outros apps não precisam ter filtros de intent, e você pode iniciá-las usando intents explícitos. <s>Para mais informações sobre como suas atividades podem responder aos intents, consulte Intents e filtros de intents.</s>
 
 ## Declarar permissões
-Você pode usar a tag **<activity>** do manifesto para controlar quais apps podem iniciar uma atividade específica. Uma atividade mãe não pode iniciar uma atividade filha a menos que as duas tenham as mesmas permissões no manifesto. Se você declarar um elemento <uses-permission> para uma atividade mãe, cada atividade filha precisará ter um elemento **<uses-permission>** correspondente.
+Você pode usar a tag **`<activity>`** do manifesto para controlar quais apps podem iniciar uma atividade específica. Uma atividade mãe não pode iniciar uma atividade filha a menos que as duas tenham as mesmas permissões no manifesto. Se você declarar um elemento **`<uses-permission>`** para uma atividade mãe, cada atividade filha precisará ter um elemento **`<uses-permission>`** correspondente.
 
 Por exemplo, se seu app quiser usar um app hipotético chamado SocialApp para compartilhar uma postagem em mídias sociais, o próprio SocialApp precisa definir a permissão que o app autor da chamada precisa ter:
 
