@@ -7,7 +7,7 @@ Neste projeto aprenderemos a fazer uma app que simula o comportamento de um dado
 
 Ao final do tutorial, seu app deverá se parecer com este:
 
-![_config.yml]({{ site.baseurl }}/images/dice-2.png)
+<p align="center">![_config.yml]({{ site.baseurl }}/images/dice-2.png)</p>
 
 Vamos lá!
 
@@ -43,6 +43,7 @@ Vamos lá!
     ```
     2. Adicione o atributo ```android:orientation="vertical"``` a LinearLayout. Este atributo muda a orientação do posicionamento para vertical, ao invés de horizontal.
     3. Altere o texto do TextView para 1. Altere o tamanho da fonte com o atributo ```android:textSize="30sp"``` e centralize-o verticalmente e horizontalmente com o atributo ```android:layout_gravity="center_horizontal```"
+
     ```xml
         <TextView
             android:layout_width="wrap_content"
@@ -63,7 +64,7 @@ Vamos lá!
     ```
     5. Aceite a sugestão (Extract string resource) do Android Studio para o atributo ```android:text="Rolar"```. Esta sugestão extrairá o texto e o salvará em um xml com o nome **strings.xml** (res/values/strings.xml)
     
-    O layout deve ficar assim:
+    6. O layout deve ficar assim:
 
     ```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -92,7 +93,9 @@ Vamos lá!
     </LinearLayout>
     ```
 
-    ![_config.yml]({{ site.baseurl }}/images/dice-1.png)
+    7. Abaixo está uma imagem de como deve ficar o layout do app até o momento:
+
+    <p align="center">![_config.yml]({{ site.baseurl }}/images/dice-1.png)</p>
 
 3. ## Conectando o botão
     
@@ -179,7 +182,7 @@ Vamos lá!
     ```
     6. Espero que tenham chegado ao objetivo:
     
-      ![_config.yml]({{ site.baseurl }}/images/dice-2.png)
+    <p align="center">![_config.yml]({{ site.baseurl }}/images/dice-2.png)</p>
 
 6. ## Habilitando o uso de imagens vetoriais
     1. Os arquivos de imagem do dado que você baixou são imagens vetoriais. Uma vantagem do uso de imagens vetoriais é que a mesma imagem pode ser aumentada/diminuída enquanto o tamanho e a qualidade da imagem é mantida. No entanto, até o momento, o Android converte as imagens vetoriais para bitmap, não aproveitando as vantagens desse tipo de arquivo. Mais imagens no seu app implica em um APK maior. APKs maiores estão mais suscetíveis a desinstação e cancelamento de download. Sem contar que usuários com dispositivos limitados em memória (e também plano de dados) podem ficar insatisfeitos. Abaixo aprenderemos a habilitar o uso de imagens vetoriais no Android. 
