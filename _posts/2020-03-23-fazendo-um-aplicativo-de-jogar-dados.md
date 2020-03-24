@@ -1,9 +1,15 @@
 ---
 layout: post
-title: Fazendo um aplicativo de rolar dado
+title: Fazendo um aplicativo de rolar dado (Android)
 ---
 
-Neste projeto aprenderemos a fazer uma app que simula o comportamento de um dado. Ao clicar em um botão rolar, uma face do dado será aleatoriamente exibida para o usuário do app. Vamos lá!
+Neste projeto aprenderemos a fazer uma app que simula o comportamento de um dado. Ao clicar em um botão rolar, uma face do dado será aleatoriamente exibida para o usuário do app. 
+
+Ao final do tutorial, seu app deverá se parecer com este:
+
+![_config.yml]({{ site.baseurl }}/images/dice-2.png)
+
+Vamos lá!
 
 1. ## Crie o projeto
     1. Primeiramente, abra o Android Studio. Crie um novo projeto (File > New > New Project).
@@ -129,3 +135,93 @@ Neste projeto aprenderemos a fazer uma app que simula o comportamento de um dado
         }
       ```
 5. ## Substituir por imagens de dados
+
+    1. Faça o download das [imagens do dado](https://github.com/udacity/andfun-kotlin-dice-roller/raw/master/DiceImages.zip)
+    2. Adicione as imagens no diretório drawable
+    3. Substitua o **TextView** por um **ImageView** e configure-o com o _empty_dice_
+      ```xml
+      <ImageView
+        android:id="@+id/dice_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/empty_dice" />
+      ```
+    4. Modifique o método rolar_dado para retornar o id do image resource apropriado, conforme o número aleatório obtido
+      ```java
+      private int rolar_dado(){
+        Random r = new Random();
+        switch (r.nextInt(6)+1){
+            case 1:
+                return R.drawable.dice_1;
+            case 2:
+                return R.drawable.dice_2;
+            case 3:
+                return R.drawable.dice_3;
+            case 4:
+                return R.drawable.dice_4;
+            case 5:
+                return R.drawable.dice_5;
+            case 6:
+                return R.drawable.dice_6;
+            default:
+                return R.drawable.empty_dice;
+        }
+    }
+    ```
+    5. Modifique o método **onClick**
+      ```java
+        imageView.setImageResource(rolar_dado());
+      ```
+    6. Espero que tenham chegado ao objetivo:
+    
+      ![_config.yml]({{ site.baseurl }}/images/dice-2.png)
+
+6. ## Habilitando o uso de imagens vetoriais
+    1. Os arquivos de imagem do dado que você baixou são imagens vetoriais. Uma vantagem do uso de imagens vetoriais é que a mesma imagem pode ser aumentada/diminuída enquanto o tamanho e a qualidade da imagem é mantida. No entanto, até o momento, o Android converte as imagens vetoriais para bitmap, não aproveitando as vantagens desse tipo de arquivo. Mais imagens no seu app implica em um APK maior. APKs maiores estão mais suscetíveis a desinstação e cancelamento de download. Sem contar que usuários com dispositivos limitados em memória (e também plano de dados) podem ficar insatisfeitos. Abaixo aprenderemos a habilitar o uso de imagens vetoriais no Android. 
+    2. Abra o arquivo build.gradle (Module:app) e adicionem ```vectorDrawables.useSupportLibrary = true``` ao bloco **defaultConfig**
+    ```xml
+       ...
+        defaultConfig {
+          applicationId "ads.vilhena.ifro.edu.diceroller"
+          minSdkVersion 19
+          targetSdkVersion 29
+          versionCode 1
+          versionName "1.0"
+          testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+          vectorDrawables.useSupportLibrary = true
+        }
+      ...
+    ```
+     3. Clique em **Sync now** no canto superior direito e aguardem a sincronização.
+     4. Adicione o namespace ```xmlns:app="http://schemas.android.com/apk/res-auto"``` a raíz do layout.
+    ```xml
+    ...
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      android:layout_width="match_parent"         
+      ...
+     ```
+
+     5. Use **app:srcCompat** na tag da imagem no arquivo do layout
+     ```xml
+     <ImageView
+        android:id="@+id/dice_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:srcCompat="@drawable/empty_dice" />
+     ```
+     6. Pronto! Agora sua aplicação está fazendo uso apropriado das imagens vetoriais.
+
+    ---
+     **Atenção**    
+     Imagens vetoriais são suportadas a partir da **versão 21** da API.
+
+    ---
+
+Com isso encerramos o tutorial. Espero que tenham gostado. Valeu!
+
+---
+Este tutorial foi baseado na lição _Build your first app_ do curso _Developing Android Apps with Kotlin_, disponibilizado pelo Google Inc. em Udacity.com
