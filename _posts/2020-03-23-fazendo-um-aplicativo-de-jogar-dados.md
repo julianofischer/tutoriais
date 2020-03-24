@@ -95,7 +95,7 @@ Vamos lá!
 
     7. Abaixo está uma imagem de como deve ficar o layout do app até o momento:
 
-    <p align="center">![_config.yml]({{ site.baseurl }}/images/dice-1.png)</p>
+![_config.yml]({{ site.baseurl }}/images/dice-1.png)
 
 3. ## Conectando o botão
     
@@ -144,7 +144,8 @@ Vamos lá!
     1. Faça o download das [imagens do dado](https://github.com/udacity/andfun-kotlin-dice-roller/raw/master/DiceImages.zip)
     2. Adicione as imagens no diretório drawable
     3. Substitua o **TextView** por um **ImageView** e configure-o com o _empty_dice_
-      ```xml
+      
+    ```xml
       <ImageView
         android:id="@+id/dice_image"
         android:layout_width="wrap_content"
@@ -182,11 +183,12 @@ Vamos lá!
     ```
     6. Espero que tenham chegado ao objetivo:
     
-    <p align="center">![_config.yml]({{ site.baseurl }}/images/dice-2.png)</p>
+    ![_config.yml]({{ site.baseurl }}/images/dice-2.png)
 
 6. ## Habilitando o uso de imagens vetoriais
     1. Os arquivos de imagem do dado que você baixou são imagens vetoriais. Uma vantagem do uso de imagens vetoriais é que a mesma imagem pode ser aumentada/diminuída enquanto o tamanho e a qualidade da imagem é mantida. No entanto, até o momento, o Android converte as imagens vetoriais para bitmap, não aproveitando as vantagens desse tipo de arquivo. Mais imagens no seu app implica em um APK maior. APKs maiores estão mais suscetíveis a desinstação e cancelamento de download. Sem contar que usuários com dispositivos limitados em memória (e também plano de dados) podem ficar insatisfeitos. Abaixo aprenderemos a habilitar o uso de imagens vetoriais no Android. 
     2. Abra o arquivo build.gradle (Module:app) e adicionem ```vectorDrawables.useSupportLibrary = true``` ao bloco **defaultConfig**
+
     ```xml
        ...
         defaultConfig {
@@ -200,8 +202,10 @@ Vamos lá!
         }
       ...
     ```
+
      3. Clique em **Sync now** no canto superior direito e aguardem a sincronização.
      4. Adicione o namespace ```xmlns:app="http://schemas.android.com/apk/res-auto"``` a raíz do layout.
+
     ```xml
     ...
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -209,9 +213,10 @@ Vamos lá!
       xmlns:app="http://schemas.android.com/apk/res-auto"
       android:layout_width="match_parent"         
       ...
-     ```
+    ```
 
      5. Use **app:srcCompat** na tag da imagem no arquivo do layout
+
      ```xml
      <ImageView
         android:id="@+id/dice_image"
@@ -220,6 +225,7 @@ Vamos lá!
         android:layout_gravity="center_horizontal"
         app:srcCompat="@drawable/empty_dice" />
      ```
+     
      6. Pronto! Agora sua aplicação está fazendo uso apropriado das imagens vetoriais.
 
     ---
