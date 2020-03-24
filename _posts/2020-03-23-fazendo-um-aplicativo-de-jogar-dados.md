@@ -27,6 +27,7 @@ Vamos lá!
 2. ## Modificando o Layout
 
     1. Substitua o conteúdo de **activity_main.xml** para:
+
     ```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -63,6 +64,7 @@ Vamos lá!
     5. Aceite a sugestão (Extract string resource) do Android Studio para o atributo ```android:text="Rolar"```. Esta sugestão extrairá o texto e o salvará em um xml com o nome **strings.xml** (res/values/strings.xml)
     
     O layout deve ficar assim:
+
     ```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -148,6 +150,7 @@ Vamos lá!
         android:src="@drawable/empty_dice" />
       ```
     4. Modifique o método rolar_dado para retornar o id do image resource apropriado, conforme o número aleatório obtido
+
       ```java
       private int rolar_dado(){
         Random r = new Random();
@@ -170,9 +173,10 @@ Vamos lá!
     }
     ```
     5. Modifique o método **onClick**
-      ```java
-        imageView.setImageResource(rolar_dado());
-      ```
+
+    ```java
+      imageView.setImageResource(rolar_dado());
+    ```
     6. Espero que tenham chegado ao objetivo:
     
       ![_config.yml]({{ site.baseurl }}/images/dice-2.png)
