@@ -7,7 +7,7 @@ Neste projeto aprenderemos a fazer uma app que simula o comportamento de um dado
 
 Ao final do tutorial, seu app deverá se parecer com este:
 
-<p align="center">![_config.yml]({{ site.baseurl }}/images/dice-2.png)</p>
+    ![_config.yml]({{ site.baseurl }}/images/dice-2.png)
 
 Vamos lá!
 
